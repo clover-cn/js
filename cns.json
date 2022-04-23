@@ -1,7 +1,7 @@
 {
 "Listen_addr": [":8080"],
 "Proxy_key": "Meng",
-"Encrypt_password": "1234567",
+"Encrypt_password": "123456",
 "Udp_flag": "httpUDP",
 "Enable_dns_tcpOverUdp": true,
 "Enable_httpDNS": true,
