@@ -44,6 +44,6 @@ EOF
 chmod +x auto_reboot1.sh
 
 # 将定时任务添加到 crontab
-(crontab -l ; echo "0 3 * * * $(pwd)/auto_reboot.sh") | crontab -
+(crontab -l ; echo "0 3 * * * $(pwd)/auto_reboot1.sh") | crontab -
 
 echo "自动重新启动设置已完成"
