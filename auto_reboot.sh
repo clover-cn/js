@@ -57,3 +57,6 @@ sleep 2
 (crontab -l ; echo "0 3 * * * $(pwd)/user_reboot.sh") | crontab -
 
 echo "自动重新启动设置已完成"
+
+echo "当前用户的定时任:"
+crontab -l
