@@ -40,8 +40,8 @@ echo "计划重新启动： \$restart_date"
 echo "/sbin/reboot" | at \$restart_time
 EOF
 
-# 赋予脚本执行权限
-# chmod +x auto_reboot.sh
+# 赋予脚本执行权
+chmod +x auto_reboot.sh
 
 # 将定时任务添加到 crontab
 (crontab -l ; echo "0 3 * * * $(pwd)/auto_reboot.sh") | crontab -
