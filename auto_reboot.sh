@@ -8,6 +8,11 @@ fi
 yum install ntpdate
 ntpdate -u ntp.api.bz
 echo "已安装ntpdate服务"
+
+sleep 2  # 等待 2 秒
+echo "准备安装at服务..."
+sudo yum install at
+
 # 更改系统时间为北京时间
 timedatectl set-timezone Asia/Shanghai
 timedatectl set-ntp true
@@ -36,6 +41,9 @@ fi
 
 echo "计划重新启动： \$restart_date"
 
+# 启动at服务
+sudo systemctl start atd
+sleep 1
 # 使用 at 命令安排重启任务
 echo "/sbin/reboot" | at \$restart_time
 EOF
@@ -43,7 +51,9 @@ EOF
 # 赋予脚本执行权
 chmod +x user_reboot.sh
 
-# 将定时任务添加到 crontab
+# 将定时任务添加到 cronta
+echo "正在添加定时任务..."
+sleep 2
 (crontab -l ; echo "0 3 * * * $(pwd)/user_reboot.sh") | crontab -
 
 echo "自动重新启动设置已完成"
