@@ -58,5 +58,5 @@ sleep 2
 
 echo "自动重新启动设置已完成"
 
-echo "当前用户的定时任:"
+echo "当前用户的定时任务有:"
 crontab -l
