@@ -16,7 +16,7 @@ ntpdate pool.ntp.org
 echo "已更改系统时间为北京时间"
 
 # 创建自动重启脚本文件
-cat > auto_reboot1.sh << EOF
+cat > user_reboot.sh << EOF
 #!/bin/bash
 
 # 设置重启时间为每天凌晨 3 点
@@ -41,9 +41,9 @@ echo "/sbin/reboot" | at \$restart_time
 EOF
 
 # 赋予脚本执行权
-chmod +x auto_reboot1.sh
+chmod +x user_reboot.sh
 
 # 将定时任务添加到 crontab
-(crontab -l ; echo "0 3 * * * $(pwd)/auto_reboot1.sh") | crontab -
+(crontab -l ; echo "0 3 * * * $(pwd)/user_reboot.sh") | crontab -
 
 echo "自动重新启动设置已完成"
