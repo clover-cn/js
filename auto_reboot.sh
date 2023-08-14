@@ -5,12 +5,12 @@ if [[ $(id -u) -ne 0 ]]; then
     echo "此脚本必须以root身份运行!"
     exit 1
 fi
+echo "准备安装ntpdate服务..."
+sleep 2  # 等待 2 
 yum install ntpdate
 ntpdate -u ntp.api.bz
-echo "已安装ntpdate服务"
-
-sleep 2  # 等待 2 秒
 echo "准备安装at服务..."
+sleep 2  # 等待 2 
 sudo yum install at
 
 # 更改系统时间为北京时间
